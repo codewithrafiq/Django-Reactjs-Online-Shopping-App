@@ -16,3 +16,11 @@ class CategoryProductView(APIView):
                 product_obj, many=True, context={'request': request}).data
             data.append(cata)
         return Response(data)
+
+
+class CategorisView(APIView):
+    def get(self, request):
+        categoris_obj = Category.objects.all()
+        category_serializer = CategorySerializer(
+            categoris_obj, many=True, context={'request': request}).data
+        return Response(category_serializer)
