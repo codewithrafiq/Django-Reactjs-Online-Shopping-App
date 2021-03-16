@@ -1,15 +1,51 @@
-import { Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import SingleProduct from "./SingleProduct";
+import DoubleArrowSharpIcon from "@material-ui/icons/DoubleArrowSharp";
 
-const AllProducts = ({ products }) => {
+const AllProducts = ({ products, showall = false }) => {
   return (
-    <Grid container>
+    <Grid
+      style={{
+        marginTop: "15px",
+      }}
+      container
+      spacing={2}
+    >
       {products?.map((item, i) => (
-        <Grid key={i} item md={2} sm={4}>
-          <SingleProduct product={item} />
-        </Grid>
+        <>
+          {showall ? (
+            <Grid key={i} item md={2} sm={4}>
+              <SingleProduct product={item} />
+            </Grid>
+          ) : (
+            <>
+              {i <= 10 && (
+                <Grid key={i} item md={2} sm={4}>
+                  <SingleProduct product={item} />
+                </Grid>
+              )}
+            </>
+          )}
+        </>
       ))}
+      {products?.length > 11 && !showall && (
+        <Grid
+          item
+          md={2}
+          sm={4}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Button>
+            <Typography>See More</Typography>
+            <DoubleArrowSharpIcon />
+          </Button>
+        </Grid>
+      )}
     </Grid>
   );
 };
