@@ -29,7 +29,11 @@ const CategoryProducts = () => {
         <Box key={i} container="div">
           <>
             <Headline title={item?.title} subtitle="Products" />
-            <AllProducts products={item?.products} />
+            <AllProducts
+              products={item?.products}
+              categorytitle={item?.title}
+              categoryid={item?.id}
+            />
           </>
         </Box>
       ))}

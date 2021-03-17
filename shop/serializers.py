@@ -6,7 +6,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
-        depth = 1
+        # depth = 1
 
     def imageurl(self, obj):
         request = self.context.get('request')

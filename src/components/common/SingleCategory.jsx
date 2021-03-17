@@ -1,9 +1,14 @@
 import { Box, Card, CardActionArea, Typography } from "@material-ui/core";
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const SingleCategory = ({ item }) => {
+  const history = useHistory();
+  const showcategoryproducts = () => {
+    history.push(`category-${item?.title}-${item?.id}`);
+  };
   return (
-    <CardActionArea>
+    <CardActionArea onClick={showcategoryproducts}>
       <Card
         style={{
           width: "100%",
