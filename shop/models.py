@@ -58,7 +58,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='product/')
     oldprice = models.PositiveIntegerField(blank=True, null=True)
     price = models.PositiveIntegerField()
-    discount = models.PositiveIntegerField(blank=True, null=True)
+    discount = models.PositiveIntegerField(default=0)
     category = models.ManyToManyField(Category)
     brand = models.ForeignKey(
         Brand, on_delete=models.CASCADE, blank=True, null=True)

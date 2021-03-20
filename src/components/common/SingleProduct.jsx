@@ -10,14 +10,19 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { useHistory } from "react-router";
 
 const SingleProduct = ({ product }) => {
+  const history = useHistory()
+  const productDetails = ()=>{
+    history.push(`/p-${product?.title}-${product?.id}`)
+  }
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea onClick={productDetails} >
         <CardMedia component="img" height="250" image={product?.image} />
       </CardActionArea>
-      <CardActionArea>
+      <CardActionArea onClick={productDetails} >
         <CardContent>
           <Typography align="center" variant="h6">
             {product?.title}

@@ -6,7 +6,17 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
-        # depth = 1
+
+    def imageurl(self, obj):
+        request = self.context.get('request')
+        return request.url(image)
+
+
+class SingleProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = "__all__"
+        depth = 1
 
     def imageurl(self, obj):
         request = self.context.get('request')
@@ -21,3 +31,10 @@ class CategorySerializer(serializers.ModelSerializer):
         def imageurl(self, obj):
             request = self.context.get('request')
             return request.url(image)
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'customer', 'title']
+        depth = 1
