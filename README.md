@@ -10,3 +10,4 @@
 ### [🔥🔥Part - 4 - Show Products on Reactjs ](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/175666ec5f3b509c81e39150c97f4ff983f0f0dc)
 ### [🔥🔥Part - 5 - Single Products on Reactjs](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/52a86e85c21796b72b27fd913f75b3e47d40afa7)
 ### [🔥🔥Part - 6 - Categories All Products](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/12566a066cf1f9a247b9dc937f8c1eaf929c3613)
+### [🔥🔥Part - 7 - Product Details Page](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/cfc76aacbb3f41b3836ac47b8dacd9e4f536c0b6)
