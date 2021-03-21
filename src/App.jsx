@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NabBar from "./components/NabBar";
 import HomePage from "./page/HomePage";
 import ProductDetails from "./page/ProductDetails";
+import SingleBrandsProducts from "./page/SingleBrandsProducts";
 import SingleCategoryProducts from "./page/SingleCategoryProducts";
 
 const App = () => {
@@ -16,6 +17,11 @@ const App = () => {
           exact
           path="/category-:title-:id"
           component={SingleCategoryProducts}
+        />
+        <Route
+          exact
+          path="/brand-:title-:id"
+          component={SingleBrandsProducts}
         />
       </Switch>
     </BrowserRouter>

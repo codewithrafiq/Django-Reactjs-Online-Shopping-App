@@ -38,3 +38,13 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ['id', 'customer', 'title']
         depth = 1
+
+
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Brand
+        fields = "__all__"
+
+    def getimage(self, *args, **kwargs):
+        request = self.context.get('request')
+        return request.url(logo)

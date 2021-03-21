@@ -18,6 +18,21 @@ class CategoryProductView(APIView):
         return Response(data)
 
 
+class SingleBrandsProducts(APIView):
+    def get(self, request, pk):
+        brand_obj = Brand.objects.filter(id=pk)
+        brand_serializer = BrandSerializer(
+            brand_obj, many=True, context={'request': request})
+        data = []
+        for brand in brand_serializer.data:
+            brandProducts = Product.objects.filter(brand=brand['id'])
+            brandProducts_serializer = ProductSerializer(
+                brandProducts, many=True, context={'request': request})
+            brand['products'] = brandProducts_serializer.data
+            data.append(brand)
+        return Response(data)
+
+
 class SingleCategoryView(APIView):
     def get(self, request, pk):
         category_obj = Category.objects.filter(id=pk)
@@ -60,3 +75,11 @@ class SingleProductView(APIView):
 
             data.append(prod)
         return Response(data)
+
+
+class BrandSNameView(APIView):
+    def get(self, request):
+        brand_obj = Brand.objects.all()
+        brand_serializers = BrandSerializer(
+            brand_obj, many=True, context={'request': request}).data
+        return Response(brand_serializers)
