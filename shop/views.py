@@ -83,3 +83,19 @@ class BrandSNameView(APIView):
         brand_serializers = BrandSerializer(
             brand_obj, many=True, context={'request': request}).data
         return Response(brand_serializers)
+
+
+class TrandingProductsView(APIView):
+    def get(self, request):
+        products_obj = TrendingProduct.objects.all()
+        product_serializer = TrendingProductSerializer(
+            products_obj, many=True, context={'request': request}).data
+        return Response(product_serializer)
+
+
+class SliderView(APIView):
+    def get(self, request):
+        slider_obj = Slider.objects.all()
+        slider_serializer = SliderSerializer(
+            slider_obj, many=True, context={'request': request}).data
+        return Response(slider_serializer)

@@ -9,4 +9,6 @@ urlpatterns = [
     path('singlebrands/<int:pk>/', SingleBrandsProducts.as_view()),
     path('singleproduct/<int:pk>/', SingleProductView.as_view()),
     path('brandsname/', BrandSNameView.as_view()),
+    path('trandingproducts/', TrandingProductsView.as_view()),
+    path('sliders/', SliderView.as_view()),
 ]
