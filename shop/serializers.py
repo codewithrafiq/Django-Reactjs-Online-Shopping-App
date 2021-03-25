@@ -71,3 +71,16 @@ class SliderSerializer(serializers.ModelSerializer):
     def getimage(self, *args, **kwargs):
         request = self.context.get('request')
         return request.url(image)
+
+
+class ProductViewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductView
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        response = super().to_representation(instance)
+        request = self.context.get('request')
+        response['product'] = ProductSerializer(
+            instance.product, context={'request': request}).data
+        return response

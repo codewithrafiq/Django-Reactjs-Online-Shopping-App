@@ -6,6 +6,8 @@ import { domain } from '../env'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import SendIcon from '@material-ui/icons/Send'
 import SingeReview from '../components/common/SingeReview'
+
+
 const ProductDetails = () => {
     const [product, setProduct] = useState(null);
     const { id}  = useParams()
@@ -15,11 +17,25 @@ const ProductDetails = () => {
                 url:`${domain}/api/singleproduct/${id}/`,
                 method:'GET'
             }).then(response=>{
-                console.log(response.data[0]);
+                // console.log(response.data[0]);
                 setProduct(response.data[0])
             })
         }
         getproductdetailse()
+    },[])
+    useEffect(()=>{
+        const addproductview = async()=>{
+            await axios({
+                url:`${domain}/api/addproductview/`,
+                method:'POST',
+                data:{
+                    'id':id
+                }
+            }).then(response=>{
+                console.log("ProductDetails",response.data);
+            })
+        }
+        addproductview()
     },[])
     return (
         <Container style={{

@@ -99,3 +99,24 @@ class SliderView(APIView):
         slider_serializer = SliderSerializer(
             slider_obj, many=True, context={'request': request}).data
         return Response(slider_serializer)
+
+
+class AddViewProduct(APIView):
+    def post(self, request):
+        p_id = request.data['id']
+        p_obj = Product.objects.get(id=p_id)
+        p_view_obj = ProductView.objects.filter(product=p_obj).first()
+        if p_view_obj:
+            p_view_obj.view += 1
+            p_view_obj.save()
+        else:
+            ProductView.objects.create(product=p_obj, view=1)
+        return Response({'error': False, 'message': 'Success'})
+
+
+class MostViewsProducts(APIView):
+    def get(self, request):
+        p_obj = ProductView.objects.all().order_by('-view')[:12]
+        p_obj_data = ProductViewSerializer(
+            p_obj, many=True, context={'request': request}).data
+        return Response(p_obj_data)

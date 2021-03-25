@@ -11,4 +11,6 @@ urlpatterns = [
     path('brandsname/', BrandSNameView.as_view()),
     path('trandingproducts/', TrandingProductsView.as_view()),
     path('sliders/', SliderView.as_view()),
+    path('addproductview/', AddViewProduct.as_view()),
+    path('mostviewproducts/', MostViewsProducts.as_view()),
 ]

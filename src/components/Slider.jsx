@@ -21,7 +21,7 @@ const Sliders = () => {
   },[])
   return (
   <Carousel
-    interval= '1000'
+    interval= '5000'
     stopAutoPlayOnHover = 'true'
   >
     {
