@@ -12,3 +12,4 @@
 ### [🔥🔥Part - 6 - Categories All Products](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/12566a066cf1f9a247b9dc937f8c1eaf929c3613)
 ### [🔥🔥Part - 7 - Product Details Page](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/cfc76aacbb3f41b3836ac47b8dacd9e4f536c0b6)
 ### [🔥🔥Part - 8 - Brands Products API ](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/f6f1625933a7491487fef108838f52f34d588fef)
+### [🔥🔥Part - 9 - Slider and Trending Products](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/fd3b9213b3212dde2a8c745abbf97e5e9aa98395)
