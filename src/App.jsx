@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NabBar from "./components/NabBar";
 import HomePage from "./page/HomePage";
 import ProductDetails from "./page/ProductDetails";
+import SearchResultPage from "./page/SearchResultPage";
 import SingleBrandsProducts from "./page/SingleBrandsProducts";
 import SingleCategoryProducts from "./page/SingleCategoryProducts";
 
@@ -23,6 +24,10 @@ const App = () => {
           path="/brand-:title-:id"
           component={SingleBrandsProducts}
         />
+        <Route
+          exact
+          path='/q-:q'
+          component={SearchResultPage} />
       </Switch>
     </BrowserRouter>
   );

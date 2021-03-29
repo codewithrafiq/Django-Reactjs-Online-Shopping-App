@@ -13,4 +13,5 @@ urlpatterns = [
     path('sliders/', SliderView.as_view()),
     path('addproductview/', AddViewProduct.as_view()),
     path('mostviewproducts/', MostViewsProducts.as_view()),
+    path('search/<str:q>/', SearchView.as_view()),
 ]
