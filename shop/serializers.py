@@ -84,3 +84,9 @@ class ProductViewSerializer(serializers.ModelSerializer):
         response['product'] = ProductSerializer(
             instance.product, context={'request': request}).data
         return response
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = "__all__"

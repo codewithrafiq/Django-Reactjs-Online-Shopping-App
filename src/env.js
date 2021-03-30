@@ -9,8 +9,9 @@ export const domain = "http://127.0.0.1:8000";
     window.localStorage.clear();
     window.localStorage.getItem("token");
     */
-const token = "";
+const token = window.localStorage.getItem("token");
 const csrftoken = Cookies.get("csrftoken");
+
 export const getheader = {
   Authorization: `token ${token}`,
 };

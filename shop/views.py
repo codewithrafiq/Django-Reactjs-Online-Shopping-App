@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 from django.db.models import Q
 from django.utils import timezone
 from .models import *
@@ -148,3 +150,13 @@ class SearchView(APIView):
             brand_obj, many=True, context={'request': request}).data
 
         return Response(data)
+
+
+class ProfileView(APIView):
+    permission_classes = [IsAuthenticated, ]
+    authentication_classes = [TokenAuthentication, ]
+
+    def get(self, request):
+        customer_obj = Customer.objects.get(user=request.user)
+        customer_ser = CustomerSerializer(customer_obj).data
+        return Response(customer_ser)
