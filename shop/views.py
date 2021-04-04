@@ -160,3 +160,12 @@ class ProfileView(APIView):
         customer_obj = Customer.objects.get(user=request.user)
         customer_ser = CustomerSerializer(customer_obj).data
         return Response(customer_ser)
+
+
+class RegisterUserView(APIView):
+    def post(self, request):
+        serializers = UserSerializer(data=request.data)
+        if serializers.is_valid(raise_exception=True):
+            serializers.save()
+            return Response({'error': False, 'message': "User Was Crated!!"})
+        return Response({'error': True, 'message': "User Was Not Crated!!"})

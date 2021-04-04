@@ -7,7 +7,7 @@ import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded'
 import { useStateValue } from "../state/stateProvider";
 
 const NabBar = () => {
-  const [profile, { }] = useStateValue();
+  const [{ profile }, { }] = useStateValue();
   console.log("NabBar===", profile);
 
   const [text, setText] = useState('');
@@ -15,6 +15,16 @@ const NabBar = () => {
   const history = useHistory();
   const search = () => {
     history.push(`/q-${text}`);
+  }
+  const logoutnow = () => {
+    window.localStorage.clear()
+    window.location.href = '/';
+  }
+  const orderpage = () => {
+    history.push('/orders')
+  }
+  const profilepage = () => {
+    history.push(`/profile-${profile?.username}`)
   }
   return (
     <AppBar position="sticky">
@@ -38,32 +48,36 @@ const NabBar = () => {
             </IconButton>
           </Paper>
         </Grid>
-
-        <Button color='inherit' onClick={() => { history.push('/login') }} >Login</Button>
-
-        <IconButton color="inherit">
-          <Badge badgeContent="3" color="secondary">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-
-        <IconButton onClick={() => setShowMenu(true)} color="inherit">
-          <AccountCircleRoundedIcon />
-        </IconButton>
-
         {
-          showMenu &&
-          <ClickAwayListener onClickAway={() => setShowMenu(false)}>
-            <Card style={{
-              position: 'fixed',
-              top: '50px',
-              right: '10px'
-            }}>
-              <MenuItem>Profile</MenuItem>
-              <MenuItem>Logout</MenuItem>
-            </Card>
-          </ClickAwayListener>
+          profile === null ?
+            <Button color='inherit' onClick={() => { history.push('/login') }} >Login</Button>
+            :
+            <>
+              <IconButton onClick={orderpage} color="inherit">
+                <Badge badgeContent="3" color="secondary">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+
+              <IconButton onClick={() => setShowMenu(true)} color="inherit">
+                <AccountCircleRoundedIcon />
+              </IconButton>
+              {
+                showMenu &&
+                <ClickAwayListener onClickAway={() => setShowMenu(false)}>
+                  <Card style={{
+                    position: 'fixed',
+                    top: '50px',
+                    right: '10px'
+                  }}>
+                    <MenuItem onClick={profilepage}>Profile</MenuItem>
+                    <MenuItem onClick={logoutnow}>Logout</MenuItem>
+                  </Card>
+                </ClickAwayListener>
+              }
+            </>
         }
+
       </Toolbar>
     </AppBar>
   );

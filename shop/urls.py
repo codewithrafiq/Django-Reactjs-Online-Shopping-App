@@ -17,5 +17,6 @@ urlpatterns = [
     path('mostviewproducts/', MostViewsProducts.as_view()),
     path('search/<str:q>/', SearchView.as_view()),
     path('profile/', ProfileView.as_view()),
+    path('register/', RegisterUserView.as_view()),
     path('apilogin/', obtain_auth_token),
 ]

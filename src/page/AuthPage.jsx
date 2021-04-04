@@ -7,6 +7,7 @@ const AuthPage = () => {
     const [registernow, setRegisternow] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
     const loginnow = async () => {
         await axios({
             url: `${domain}/api/apilogin/`,
@@ -28,6 +29,31 @@ const AuthPage = () => {
         }).catch(_ => {
             alert("Somthing is Wrong !! Try Agail !")
         })
+    }
+    const register = async () => {
+        if (password === password2) {
+            await axios({
+                url: `${domain}/api/register/`,
+                method: 'POST',
+                data: {
+                    'email': email,
+                    'password': password,
+
+                }
+            }).then(response => {
+                console.log('AuthPage====', response.data);
+                if (response.data['error'] === false) {
+                    setRegisternow(false)
+                }
+                else {
+                    alert("Somthing is Wrong Try Agan !!")
+
+                }
+            })
+        }
+        else {
+            alert("Two Password Not Matchd !!")
+        }
     }
     return (
         <Grid
@@ -63,12 +89,14 @@ const AuthPage = () => {
                         variant="outlined"
                         label="Confirm Password"
                         type='password'
+                        onChange={(e) => setPassword2(e.target.value)}
+
                     />
                 }
                 {
                     registernow ?
                         <>
-                            <Button variant='contained' color='primary'>
+                            <Button onClick={register} variant='contained' color='primary'>
                                 Register
                     </Button>
                             <Button onClick={() => setRegisternow(false)}>
