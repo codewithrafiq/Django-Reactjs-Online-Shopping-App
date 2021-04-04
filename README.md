@@ -16,3 +16,4 @@
 ### [🔥🔥Part - 10 - Most Viewed Products](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/988ca7c7a44f5edbe76fb6da93694834e0c9e029)
 ### [🔥🔥Part - 11 - Add Search Functionality ](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/6afa4a11f398ae9dad04d3b21e0174440e8659e2)
 ### [🔥🔥Part - 12 - Login by Token ](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/a68c5393a99f6770cc4952ac9d715beb98a36ce0)
+### [🔥🔥Part - 13 - Logout and Register ](https://github.com/codewithrafiq/Django-Reactjs-Online-Shopping-App/tree/5c7361c6077051aeedcd6a5f262159a0c9c36b7c)
